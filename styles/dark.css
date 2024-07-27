@@ -9,4 +9,43 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+  --page-background-image-url: url(../images/cover-image-dark.png);
+  --header-title-color: #db00ff;
+  --inversed-color: #000028;
+  --main-color: #f1b2ce;
+  --accent-color: #ff0070;
+  --accent-color-alpha: rgba(255, 0, 112, 0.4);
+
+  .header__decoration::before {
+    content: 'rec';
+    color: var(--accent-color);
+    text-transform: uppercase;
+    font-size: var(--main-font-size);
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+  }
+
+  .header__decoration::after {
+    content: '';
+    position: absolute;
+    inset-block-start: 5px;
+    inset-inline-end: -20px;
+    background-color: var(--accent-color, #ff0070);
+    border-radius: 50%;
+    inline-size: 12px;
+    block-size: 12px;
+    border-inline-end: 1px solid var(--accent-color, #ff0070);
+  }
+
+  @media (width >= 768px) {
+    
+    .header__decoration::before {
+      inset-inline-end: 10px;
+    }
+
+    .header__decoration::after {
+      inset-inline-end: -10px;
+    }
+  }
 }
