@@ -11,8 +11,9 @@
     --header-title-color: #ffc2e6;
     --inversed-color: #353430;
     --main-color: #353430;
-    --main-color-alpha: rgba(53, 52, 48, 0.4);
+    --main-color-faded: rgba(53, 52, 48, 0.4);
     --accent-color: #ff8dcb;
+    --body-bg-color: #F5F5F5;
   }
 }
 
@@ -27,6 +28,7 @@
   --inversed-color: #353430;
   --main-color: #353430;
   --accent-color: #ff8dcb;
+  --body-bg-color: #F5F5F5;
 
   .header__theme-menu-button_active {
     border: 1px solid var(--main-color);
@@ -37,7 +39,7 @@
   }
 
   .header__theme-menu-button:hover {
-    border: 1px solid var(--main-color-alpha);
+    border: 1px solid var(--main-color-faded);
   }
  
 }
