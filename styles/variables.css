@@ -3,7 +3,7 @@
 */
 
 :root {
-  
+
   --page-background-image-url: url(../images/cover-image-dark.png); 
   --page-padding: 10px;
   --body-bg-color: #000028;
@@ -18,7 +18,7 @@
   --main-color-faded: rgba(241, 178, 206, 0.4);
   --main-font-family: 'IBM Plex Mono';
   --main-font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
-  --main-font-weight: 400;  
+  --main-font-weight: 400;
   --main-line-height: 1.463rem;
 
   --main-section-gallery-gap: 10px;

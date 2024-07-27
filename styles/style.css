@@ -1,6 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 body {
+  margin: 0 auto;
   background-color: var(--body-bg-color);
 }
 
