@@ -4,16 +4,17 @@
 
 :root {
 
-  --page-background-image-url: url(../images/cover-image-dark.png); 
+  --page-background-image-url: url(../images/cover-image-dark.png);
   --page-padding: 10px;
   --body-bg-color: #000028;
 
   --header-title-font-size: clamp(7.25rem, 7.25rem + 0vw, 7.25rem);
   --header-title-line-height: 82.5%;
-  --header-title-color: #db00ff;   
+  --header-title-color: #db00ff;
+  --header-title-shadow-color: #FF0070;
   --header-decor-inset-inline-end: 38px;
 
-  --inversed-color: #000028; 
+  --inversed-color: #000028;
   --main-color: #f1b2ce;
   --main-color-faded: rgba(241, 178, 206, 0.4);
   --main-font-family: 'IBM Plex Mono';

@@ -1,16 +1,12 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
-body {
-  margin: 0 auto;
-  background-color: var(--body-bg-color);
-}
-
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  background-image: var(--page-background-image-url);
+  background-image: var(--page-background-image-url, url(../images/cover-image-dark.png));
+  background-color: var(--body-bg-color,#000028);
   background-position: center;
   background-attachment: fixed;
-  font-family: var(--main-font-family, sans-serif);
+  font-family: var(--main-font-family, Helvetica, Arial, sans-serif);
   color: var(--main-color, #f1b2ce);
   font-size: var(--main-font-size, 18px);
   line-height: var(--main-line-height, 1.463rem);
@@ -18,7 +14,7 @@ body {
 }
 
 .screen_size {
-  min-width: calc(100vi - 2 * var(--page-padding, 10px));
+  min-width: calc(100% - 2 * var(--page-padding, 10px));
   min-height: calc(100vh - 2 * var(--page-padding, 10px));
 }
 
@@ -31,33 +27,35 @@ body {
   );
   justify-items: end;
   align-items: center;
+  min-width: 100%;
   min-height: calc(100vh - 2 * var(--page-padding, 10px));
+}
+
+.header__title {
+  position: relative;
+  inset-inline-start: o;
 }
 
 .decorated-zone {
   position: relative;
 }
 
-.decorated-zone::before {
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  inset-block-start: 0;
-  inset-inline-end: 0;
-  border-top: 1px solid var(--accent-color);
-  border-right: 1px solid var(--accent-color);
-}
-
+.decorated-zone::before,
 .decorated-zone::after {
   content: '';
   position: absolute;
   width: 25px;
   height: 25px;
+}
+
+.decorated-zone::before {
+  inset-block-start: 0;
+  inset-inline-end: 0;
+}
+
+.decorated-zone::after {
   inset-block-end: 0;
   inset-inline-start: 0;
-  border-bottom: 1px solid var(--accent-color);
-  border-left: 1px solid var(--accent-color);
 }
 
 .header__theme-menu {
@@ -71,31 +69,22 @@ body {
   gap: 10px;
 }
 
+.header__theme-menu-item {
+  outline: none;
+}
+
 .header__theme-menu-button {
   background-color: transparent;
   border: 1px solid transparent;
-  color: var(--accent-color);
+  color: var(--accent-color, #ff0070);
   padding-inline: 5px;
-}
-
-.header__theme-menu-button:hover {
-  border: 1px solid var(--accent-color-faded);
-}
-
-.header__theme-menu-button:focus {
-  border-bottom: 1px solid var(--accent-color);
 }
 
 .header__theme-menu-button span {
   padding-inline: 8px;
 }
 
-.header__theme-menu-button_active {
-  border: 1px solid var(--accent-color);
-}
-
 .header__decoration {
-  aria-hidden: true;
   position: absolute;
   inset-block-start: var(--page-padding, 10px);
   inset-inline-end: var(--header-decor-inset-inline-end, 38px);
@@ -103,20 +92,20 @@ body {
 
 .title {
   justify-self: start;
-  text-shadow: 4px 4px 0 var(--accent-color);
+  text-shadow: 4px 4px 0 var(--header-title-shadow-color, #ff0070);
   color: var(--header-title-color, #db00ff);
-  font-size: var(--header-title-font-size);
-  line-height: var(--header-title-line-height);
-  font-weight: var(--bold-font-weight);
+  font-size: var(--header-title-font-size, clamp(7.25rem, 7.25rem + 0vw, 7.25rem));
+  line-height: var(--header-title-line-height, 82.5%);
+  font-weight: var(--bold-font-weight, 700);
 }
 
 .header__subtitle {
   align-self: start;
-  margin-block-start: calc(0.37 * var(--header-title-font-size));
+  margin-block-start: calc(0.4 * var(--header-title-font-size, clamp(7.25rem, 7.25rem + 0vw, 7.25rem)));
   max-width: 50%;
 }
 
-.paragraph-margin-block {
+.paragraph-title-margin-block {
   margin-block: 20px 10px;
 }
 
@@ -124,47 +113,13 @@ body {
   margin-block-end: 50px;
 }
 
-.main__section_type_first {
+.main__section-content {
+  padding-block-start: 0;
+}
+
+.main__section_type-title-column {
   display: grid;
   grid-template-columns: 1fr;
-}
-
-.main__section_gallery .paragraph-margin-block {
-  margin-block: 20px 0;
-}
-
-.title-decor {
-  background-color: var(--accent-color);
-  color: var(--inversed-color);
-  font-weight: var(--bold-font-weight);
-  font-size: var(--main-font-size);
-}
-
-.main__section-title_type_advice {
-  font-weight: var(--main-font-weight);
-  background-color: var(--accent-color);
-  color: var(--inversed-color);
-  font-size: var(--main-font-size);
-}
-
-.main__section-title {
-  color: var(--accent-color, #ff0070);
-  font-size: var(--main-font-size);
-  padding-block-start: 50px;
-}
-
-.main__section_link {
-  text-shadow: 2px 2px 0 var(--accent-color);
-  text-decoration: none;
-}
-
-.main__section_link:hover {
-  text-decoration: underline;
-}
-
-.main__section_link:focus {
-  text-decoration: none;
-  border: 1px solid var(--main-color);
 }
 
 .main__section_gallery {
@@ -178,6 +133,40 @@ body {
   margin: 20px 0 0;
 }
 
+.main__section_gallery .paragraph-title-margin-block {
+  margin-block: 20px 0;
+}
+
+.title-decor {
+  background-color: var(--accent-color, #ff0070);
+  color: var(--inversed-color);
+  font-weight: var(--bold-font-weight);
+  font-size: var(--main-font-size);
+}
+
+.main__section-title {
+  font-size: var(--main-font-size);
+  padding-block-start: 50px;
+}
+
+.main__section_title_type-advice {
+  font-weight: var(--main-font-weight);
+}
+
+.main__section_link {
+  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+  text-decoration: none;
+}
+
+.main__section_link:hover {
+  border-bottom: 1px solid var(--main-color, #f1b2ce);
+}
+
+.main__section_link:focus-visible {
+  text-decoration: none;
+  border: 1px solid var(--main-color, #f1b2ce);
+}
+
 .main__section_gallery-container {
   display: grid;
   container-type: inline-size;
@@ -187,6 +176,7 @@ body {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .footer {
@@ -196,10 +186,10 @@ body {
 }
 
 .footer .title {
-  text-shadow: 2px 2px 0 var(--accent-color);
+  text-shadow: 2px 2px 0 var(--header-title-shadow-color, #ff0070);
 }
 
-.main__section_type_second {
+.main__section_type-newspaper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
@@ -207,11 +197,12 @@ body {
     'content content content';
 }
 
-.main__section_type_second_title {
+.main__section_type-newspaper-title {
   grid-area: title;
+  width: min-content;
 }
 
-.main__section_type_second_content {
+.main__section_type-newspaper-content {
   grid-area: content;
   display: grid;
   grid-template-rows: 1fr;
@@ -220,18 +211,23 @@ body {
 
 .main__section_gallery_content {
   display: grid;
+  container-type: inline-size;
   gap: var(--main-section-gallery-gap, 10px);
+  max-width: 100%;
 }
 
-@media (max-width: 768.99px) {
-
+@media (max-width: 767.5px) {
+  
   .header__subtitle {
     max-width: 100%;
   }
 
-  .main__section_type_second {
-    display: grid;
+  .main__section_type-newspaper {
     grid-template-columns: 1fr;
+  }
+
+  .main__section_type-newspaper-title {
+    width: 100%;
   }
 }
 
@@ -244,7 +240,6 @@ body {
   }
 
   .header__title {
-    position: relative;
     inset-inline-start: calc(-1 * var(--page-padding, 20px));
   }
 
@@ -260,7 +255,7 @@ body {
     padding-block-start: 80px;
   }
 
-  .main__section_type_first {
+  .main__section_type-title-column {
     grid-template-columns: 32% 65%;
     gap: 3%;
   }
@@ -269,15 +264,11 @@ body {
     padding-block-start: 60px;
   }
 
-  .main__section_gallery .paragraph-margin-block {
+  .main__section_gallery .paragraph-title-margin-block {
     margin-block: 50px 0;
   }
 
   .main__section_gallery_content {
-    display: grid;
-    container-type: inline-size;
-    gap: var(--main-section-gallery-gap, 20px);
-    max-width: 100%;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: calc(100% * 0.25) calc(100% * 0.3) calc(100% * 0.415);
   }
@@ -290,7 +281,6 @@ body {
   }
 
   .header__theme-menu {
-    align-self: start;
     justify-self: center;
     margin-block-start: 0;
   }
@@ -299,21 +289,23 @@ body {
     flex-direction: row;
   }
 
-  .main__section_type_first {
+  .main__section_type-title-column {
     grid-template-columns: 32% 66%;
     gap: 2%;
   }
 
-  .main__section_type_second_content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
+  .main__section_type-newspaper-content {
     gap: var(--main-section-gallery-gap);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .main__section_type-newspaper-title {
+    width: 100%;
   }
 }
 
 @container (inline-size >= 728px) {
-  
+
   .main__section_gallery-container:nth-child(1) {
     grid-column: 1 / 3;
     grid-row: 1 / 2;

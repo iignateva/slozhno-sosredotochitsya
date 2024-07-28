@@ -7,13 +7,45 @@
 @media (prefers-color-scheme: light) {
 
   :root {
+
     --page-background-image-url: url(../images/cover-image-light.png);
     --header-title-color: #ffc2e6;
     --inversed-color: #353430;
     --main-color: #353430;
     --main-color-faded: rgba(53, 52, 48, 0.4);
     --accent-color: #ff8dcb;
-    --body-bg-color: #F5F5F5;
+    --body-bg-color: #f5f5f5;
+  }
+
+  .decorated-zone::before {
+    border-top: 1px solid var(--main-color, #353430);
+    border-right: 1px solid var(--main-color, #353430);
+  }
+
+  .decorated-zone::after {
+    border-bottom: 1px solid var(--main-color, #353430);
+    border-left: 1px solid var(--main-color, #353430);
+  }
+
+  .header__theme-menu-button_active {
+    border: 1px solid var(--main-color, #353430);
+  }
+
+  .header__theme-menu-button {
+    color: var(--main-color, #353430);
+  }
+
+  .header__theme-menu-button:focus-visible {
+    outline: none;
+    border-bottom: 1px solid var(--main-color, #353430);
+  }
+
+  .header__theme-menu-button:hover {
+    border: 1px solid var(--main-color-faded, rgba(53, 52, 48, 0.4));
+  }
+
+  .main__section-title {
+    color: var(--main-color, #353430);
   }
 }
 
@@ -27,19 +59,38 @@
   --header-title-color: #ffc2e6;
   --inversed-color: #353430;
   --main-color: #353430;
+  --main-color-faded: rgba(53, 52, 48, 0.4);
   --accent-color: #ff8dcb;
-  --body-bg-color: #F5F5F5;
+  --body-bg-color: #f5f5f5;
+
+  .decorated-zone::before {
+    border-top: 1px solid var(--main-color, #353430);
+    border-right: 1px solid var(--main-color, #353430);
+  }
+
+  .decorated-zone::after {
+    border-bottom: 1px solid var(--main-color, #353430);
+    border-left: 1px solid var(--main-color, #353430);
+  }
 
   .header__theme-menu-button_active {
-    border: 1px solid var(--main-color);
+    border: 1px solid var(--main-color, #353430);
   }
 
   .header__theme-menu-button {
-    color: var(--main-color);
+    color: var(--main-color, #353430);
+  }
+
+  .header__theme-menu-button:focus-visible {
+    outline: none;
+    border-bottom: 1px solid var(--main-color, #353430);
   }
 
   .header__theme-menu-button:hover {
-    border: 1px solid var(--main-color-faded);
+    border: 1px solid var(--main-color-faded, rgba(53, 52, 48, 0.4));
   }
- 
+
+  .main__section-title {
+    color: var(--main-color, #353430);
+  }
 }
