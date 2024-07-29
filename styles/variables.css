@@ -17,11 +17,12 @@
   --inversed-color: #000028;
   --main-color: #f1b2ce;
   --main-color-faded: rgba(241, 178, 206, 0.4);
-  --main-font-family: 'IBM Plex Mono';
+  --main-font-family: 'IBM Plex Mono', helvetica, arial, sans-serif;
   --main-font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
   --main-font-weight: 400;
   --main-line-height: 1.463rem;
 
+  --paragraph-gap: 10px;
   --main-section-gallery-gap: 10px;
 
   --bold-font-weight: 700;

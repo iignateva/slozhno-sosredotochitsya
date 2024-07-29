@@ -2,18 +2,23 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  background-image: var(--page-background-image-url, url(../images/cover-image-dark.png));
-  background-color: var(--body-bg-color,#000028);
+  background-image: var(
+    --page-background-image-url,
+    url(../images/cover-image-dark.png)
+  );
+  background-color: var(--body-bg-color, #000028);
   background-position: center;
   background-attachment: fixed;
-  font-family: var(--main-font-family, Helvetica, Arial, sans-serif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: var(--main-font-family, helvetica, arial, sans-serif);
   color: var(--main-color, #f1b2ce);
-  font-size: var(--main-font-size, 18px);
+  font-size: var(--main-font-size, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
   line-height: var(--main-line-height, 1.463rem);
   padding: var(--page-padding, 10px);
 }
 
-.screen_size {
+.height-equals-screen {
   min-width: calc(100% - 2 * var(--page-padding, 10px));
   min-height: calc(100vh - 2 * var(--page-padding, 10px));
 }
@@ -31,9 +36,15 @@
   min-height: calc(100vh - 2 * var(--page-padding, 10px));
 }
 
+.header__decoration {
+  position: absolute;
+  inset-block-start: var(--page-padding, 10px);
+  inset-inline-end: var(--header-decor-inset-inline-end, 38px);
+}
+
 .header__title {
   position: relative;
-  inset-inline-start: o;
+  inset-inline-start: 0;
 }
 
 .decorated-zone {
@@ -84,95 +95,100 @@
   padding-inline: 8px;
 }
 
-.header__decoration {
-  position: absolute;
-  inset-block-start: var(--page-padding, 10px);
-  inset-inline-end: var(--header-decor-inset-inline-end, 38px);
-}
-
 .title {
   justify-self: start;
   text-shadow: 4px 4px 0 var(--header-title-shadow-color, #ff0070);
   color: var(--header-title-color, #db00ff);
-  font-size: var(--header-title-font-size, clamp(7.25rem, 7.25rem + 0vw, 7.25rem));
+  font-size: var(
+    --header-title-font-size,
+    clamp(7.25rem, 7.25rem + 0vw, 7.25rem)
+  );
   line-height: var(--header-title-line-height, 82.5%);
   font-weight: var(--bold-font-weight, 700);
 }
 
 .header__subtitle {
   align-self: start;
-  margin-block-start: calc(0.4 * var(--header-title-font-size, clamp(7.25rem, 7.25rem + 0vw, 7.25rem)));
+  margin-block-start: calc(
+    0.36 * var(--header-title-font-size, clamp(7.25rem, 7.25rem + 0vw, 7.25rem))
+  );
   max-width: 50%;
 }
 
-.paragraph-title-margin-block {
-  margin-block: 20px 10px;
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-block-start: 50px;
 }
 
-.main__section {
-  margin-block-end: 50px;
-}
-
-.main__section-content {
+.document__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding-block-start: 0;
 }
 
-.main__section_type-title-column {
-  display: grid;
-  grid-template-columns: 1fr;
+document__content_title {
+  margin-block-start: 0;
 }
 
-.main__section_gallery {
+.paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: var(--paragraph-gap, 10px);
+}
+
+.document_gorizontal {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.gallery {
   display: flex;
   flex-direction: column;
   gap: var(--main-section-gallery-gap, 10px);
-  margin-block-start: 28px;
 }
 
-.main__section_gallery .paragraph-title {
-  margin: 20px 0 0;
-}
-
-.main__section_gallery .paragraph-title-margin-block {
-  margin-block: 20px 0;
-}
-
-.title-decor {
+.title_decor {
   background-color: var(--accent-color, #ff0070);
-  color: var(--inversed-color);
-  font-weight: var(--bold-font-weight);
-  font-size: var(--main-font-size);
+  color: var(--inversed-color, #000028);
+  font-weight: var(--bold-font-weight, 700);
+  font-size: var(--main-font-size, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
 }
 
-.main__section-title {
-  font-size: var(--main-font-size);
-  padding-block-start: 50px;
+.document__title {
+  font-size: var(--main-font-size, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
 }
 
-.main__section_title_type-advice {
-  font-weight: var(--main-font-weight);
+.paragraph_subtitle {
+  font-weight: var(--main-font-weight, 400);
 }
 
-.main__section_link {
+.paragraph__link {
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
   text-decoration: none;
 }
 
-.main__section_link:hover {
+.paragraph__link:hover {
   border-bottom: 1px solid var(--main-color, #f1b2ce);
 }
 
-.main__section_link:focus-visible {
-  text-decoration: none;
-  border: 1px solid var(--main-color, #f1b2ce);
+.paragraph__link:focus {
+  outline: 1px solid var(--main-color, #f1b2ce);
 }
 
-.main__section_gallery-container {
+.paragraph__link:focus-visible {
+  outline: 1px solid var(--main-color, #f1b2ce);
+}
+
+.gallery__tile_container {
   display: grid;
   container-type: inline-size;
 }
 
-.main__section_gallery-image {
+.gallery__tile_image {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
@@ -180,6 +196,7 @@
 }
 
 .footer {
+  margin-block-start: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,27 +206,28 @@
   text-shadow: 2px 2px 0 var(--header-title-shadow-color, #ff0070);
 }
 
-.main__section_type-newspaper {
+.document_vertical {
   display: grid;
+  gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     'title . . '
     'content content content';
 }
 
-.main__section_type-newspaper-title {
+.document_vertical_title {
   grid-area: title;
   width: min-content;
 }
 
-.main__section_type-newspaper-content {
+.newspaper_format {
   grid-area: content;
   display: grid;
   grid-template-rows: 1fr;
-  grid-auto-flow: rows;
+  grid-auto-flow: row;
 }
 
-.main__section_gallery_content {
+.gallery__mosaic {
   display: grid;
   container-type: inline-size;
   gap: var(--main-section-gallery-gap, 10px);
@@ -217,16 +235,36 @@
 }
 
 @media (max-width: 767.5px) {
-  
+
+  .main {
+    gap: 50px;
+  }
+
+  .document_gorizontal {
+    gap: 20px;
+  }
+
+  .document_vertical {
+    grid-template-columns: 1fr;
+    grid-template-areas: 1fr;
+  }
+
   .header__subtitle {
     max-width: 100%;
   }
 
-  .main__section_type-newspaper {
+  .newspaper_format {
     grid-template-columns: 1fr;
   }
 
-  .main__section_type-newspaper-title {
+  .footer {
+    margin-block-start: 47px;
+  }
+}
+
+@media (max-width: 767.5px), (min-width: 1024px) {
+
+  .document_vertical_title {
     width: 100%;
   }
 }
@@ -247,30 +285,18 @@
     margin-block-start: 169px;
   }
 
-  .main__section {
-    margin-block-end: 80px;
+  .main {
+    gap: 80px;
+    margin-block-start: 80px;
   }
 
-  .main__section-title {
-    padding-block-start: 80px;
-  }
-
-  .main__section_type-title-column {
+  .document_gorizontal {
     grid-template-columns: 32% 65%;
     gap: 3%;
   }
 
-  .main__section-content {
-    padding-block-start: 60px;
-  }
-
-  .main__section_gallery .paragraph-title-margin-block {
-    margin-block: 50px 0;
-  }
-
-  .main__section_gallery_content {
+  .gallery__mosaic {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: calc(100% * 0.25) calc(100% * 0.3) calc(100% * 0.415);
   }
 }
 
@@ -289,44 +315,40 @@
     flex-direction: row;
   }
 
-  .main__section_type-title-column {
+  .document_gorizontal {
     grid-template-columns: 32% 66%;
     gap: 2%;
   }
 
-  .main__section_type-newspaper-content {
+  .newspaper_format {
     gap: var(--main-section-gallery-gap);
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .main__section_type-newspaper-title {
-    width: 100%;
   }
 }
 
 @container (inline-size >= 728px) {
 
-  .main__section_gallery-container:nth-child(1) {
+  .gallery__tile_container:nth-child(1) {
     grid-column: 1 / 3;
     grid-row: 1 / 2;
   }
 
-  .main__section_gallery-container:nth-child(2) {
+  .gallery__tile_container:nth-child(2) {
     grid-column: 3 / 4;
     grid-row: 1 / 3;
   }
 
-  .main__section_gallery-container:nth-child(3) {
+  .gallery__tile_container:nth-child(3) {
     grid-column: 1 / 2;
     grid-row: 2 / 4;
   }
 
-  .main__section_gallery-container:nth-child(4) {
+  .gallery__tile_container:nth-child(4) {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
   }
 
-  .main__section_gallery-container:nth-child(5) {
+  .gallery__tile_container:nth-child(5) {
     grid-column: 2 / 4;
     grid-row: 3 / 4;
   }
