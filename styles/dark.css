@@ -59,6 +59,10 @@
     color: var(--accent-color, #ff0070);
   }
 
+  .paragraph__title {
+    color: var(--inversed-color, #000028);
+  }
+
   @media (width >= 768px) {
 
     .header__decoration::before {
@@ -136,6 +140,10 @@
 
   .document__title {
     color: var(--accent-color, #ff0070);
+  }
+
+  .paragraph__title {
+    color: var(--inversed-color, #000028);
   }
 
   @media (width >= 768px) {

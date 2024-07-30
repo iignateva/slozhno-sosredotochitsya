@@ -151,15 +151,18 @@ document__content_title {
   gap: var(--main-section-gallery-gap, 10px);
 }
 
+.document__title {
+  font-size: var(--main-font-size, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
+}
+
+.paragraph__title {
+  font-size: var(--main-font-size, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
+}
+
 .title_decor {
   background-color: var(--accent-color, #ff0070);
   color: var(--inversed-color, #000028);
   font-weight: var(--bold-font-weight, 700);
-  font-size: var(--main-font-size, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
-}
-
-.document__title {
-  font-size: var(--main-font-size, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
 }
 
 .paragraph_subtitle {
@@ -246,7 +249,7 @@ document__content_title {
 
   .document_vertical {
     grid-template-columns: 1fr;
-    grid-template-areas: 1fr;
+    grid-template-rows: 1fr;
   }
 
   .header__subtitle {
