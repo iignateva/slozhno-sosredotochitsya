@@ -4,147 +4,22 @@
   переключая тему
 */
 
-@media (prefers-color-scheme: dark) {
-
-  .decorated-zone::before {
-    border-top: 1px solid var(--accent-color, #ff0070);
-    border-right: 1px solid var(--accent-color, #ff0070);
-  }
-
-  .decorated-zone::after {
-    border-bottom: 1px solid var(--accent-color, #ff0070);
-    border-left: 1px solid var(--accent-color, #ff0070);
-  }
-
-  .header__theme-menu-button {
-    color: var(--accent-color, #ff0070);
-  }
-
-  .header__theme-menu-button:focus-visible {
-    outline: none;
-    border-bottom: 1px solid var(--accent-color, #ff0070);
-  }
-
-  .header__theme-menu-button:not(.header__theme-menu-button_active):hover {
-    border: 1px solid var(--accent-color-faded, rgba(255, 0, 112, 0.4));
-  }
-
-  .header__theme-menu-button_active {
-    border: 1px solid var(--accent-color, #ff0070);
-  }
-
-  .header__decoration::before {
-    content: 'rec';
-    color: var(--accent-color, #ff0070);
-    text-transform: uppercase;
-    font-size: var(--main-font-size, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
-    position: absolute;
-    inset-block-start: -10px;
-    inset-inline-end: -10px;
-  }
-
-  .header__decoration::after {
-    content: '';
-    position: absolute;
-    inset-block-start: -5px;
-    inset-inline-end: -30px;
-    background-color: var(--accent-color, #ff0070);
-    border-radius: 50%;
-    inline-size: 12px;
-    block-size: 12px;
-    border-inline-end: 1px solid var(--accent-color, #ff0070);
-  }
-
-  .document__title {
-    color: var(--accent-color, #ff0070);
-  }
-
-  .paragraph__title {
-    color: var(--inversed-color, #000028);
-  }
-
-  @media (width >= 768px) {
-
-    .header__decoration::before {
-      inset-block-start: -20px;
-      inset-inline-end: -10px;
-    }
-
-    .header__decoration::after {
-      inset-block-start: -13px;
-      inset-inline-end: -30px;
-    }
-  }
-}
-
 .page.theme_dark {
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
   --page-background-image-url: url(../images/cover-image-dark.png);
+  --body-bg-color: #000028;
+  --nav-color: #ff0070;
+  --nav-color-faded: rgba(255, 0, 112, 0.4);
+  --accent-color: #ff0070;
   --header-title-color: #db00ff;
   --inversed-color: #000028;
-  --main-color: #f1b2ce;
-  --accent-color: #ff0070;
-  --accent-color-faded: rgba(255, 0, 112, 0.4);
-
-  .decorated-zone::before {
-    border-top: 1px solid var(--accent-color, #ff0070);
-    border-right: 1px solid var(--accent-color, #ff0070);
-  }
-
-  .decorated-zone::after {
-    border-bottom: 1px solid var(--accent-color, #ff0070);
-    border-left: 1px solid var(--accent-color, #ff0070);
-  }
-
-  .header__theme-menu-button {
-    color: var(--accent-color, #ff0070);
-  }
-
-  .header__theme-menu-button:focus-visible {
-    outline: none;
-    border-bottom: 1px solid var(--accent-color, #ff0070);
-  }
-
-  .header__theme-menu-button:not(.header__theme-menu-button_active):hover {
-    border: 1px solid var(--accent-color-faded, rgba(255, 0, 112, 0.4));
-  }
-
-  .header__theme-menu-button_active {
-    border: 1px solid var(--accent-color, #ff0070);
-  }
-
-  .header__decoration::before {
-    content: 'rec';
-    color: var(--accent-color, #ff0070);
-    text-transform: uppercase;
-    font-size: var(--main-font-size, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
-    position: absolute;
-    inset-block-start: -10px;
-    inset-inline-end: -10px;
-  }
-
-  .header__decoration::after {
-    content: '';
-    position: absolute;
-    inset-block-start: -5px;
-    inset-inline-end: -30px;
-    background-color: var(--accent-color, #ff0070);
-    border-radius: 50%;
-    inline-size: 12px;
-    block-size: 12px;
-    border-inline-end: 1px solid var(--accent-color, #ff0070);
-  }
-
-  .document__title {
-    color: var(--accent-color, #ff0070);
-  }
-
-  .paragraph__title {
-    color: var(--inversed-color, #000028);
-  }
+  --main-color: #f1b2ce; 
+  --paragraph-title: #000028;
+  --document-color: #ff0070;
+  --paragraph-color: #000028;
 
   @media (width >= 768px) {
 

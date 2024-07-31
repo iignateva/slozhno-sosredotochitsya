@@ -8,6 +8,9 @@
   --page-padding: 10px;
   --body-bg-color: #000028;
 
+  --nav-color: #ff0070;
+  --nav-color-faded: rgba(255, 0, 112, 0.4);
+
   --header-title-font-size: clamp(7.25rem, 7.25rem + 0vw, 7.25rem);
   --header-title-line-height: 82.5%;
   --header-title-color: #db00ff;
@@ -16,16 +19,17 @@
 
   --inversed-color: #000028;
   --main-color: #f1b2ce;
-  --main-color-faded: rgba(241, 178, 206, 0.4);
   --main-font-family: 'IBM Plex Mono', helvetica, arial, sans-serif;
   --main-font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
   --main-font-weight: 400;
   --main-line-height: 1.463rem;
+
+  --document-color: #ff0070;
+  --paragraph-color: #000028;
 
   --paragraph-gap: 10px;
   --main-section-gallery-gap: 10px;
 
   --bold-font-weight: 700;
   --accent-color: #ff0070;
-  --accent-color-faded: rgba(255, 0, 112, 0.4);
 }
