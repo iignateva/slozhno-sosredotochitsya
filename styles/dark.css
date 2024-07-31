@@ -21,6 +21,15 @@
   --document-color: #ff0070;
   --paragraph-color: #000028;
 
+
+  .header__decoration::before {
+      content: 'rec';
+  }
+
+  .header__decoration::after {
+     content: '';
+  }
+
   @media (width >= 768px) {
 
     .header__decoration::before {
