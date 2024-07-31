@@ -30,16 +30,4 @@
      content: '';
   }
 
-  @media (width >= 768px) {
-
-    .header__decoration::before {
-      inset-block-start: -20px;
-      inset-inline-end: -10px;
-    }
-
-    .header__decoration::after {
-      inset-block-start: -13px;
-      inset-inline-end: -30px;
-    }
-  }
 }

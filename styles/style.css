@@ -337,6 +337,16 @@ document-content_title {
     gap: 3%;
   }
 
+  .header__decoration::before {
+    inset-block-start: -20px;
+    inset-inline-end: -10px;
+  }
+
+  .header__decoration::after {
+    inset-block-start: -13px;
+    inset-inline-end: -30px;
+  }
+
   .gallery__mosaic {
     grid-template-columns: repeat(3, 1fr);
   }
