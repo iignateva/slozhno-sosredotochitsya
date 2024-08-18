@@ -48,6 +48,7 @@
 }
 
 .header__decoration::before {
+  display: var(--decoration-visibility, block);
   content: 'rec';
   color: var(--accent-color, #ff0070);
   text-transform: uppercase;
@@ -58,6 +59,7 @@
 }
 
 .header__decoration::after {
+  display: var(--decoration-visibility, block);
   content: '';
   position: absolute;
   inset-block-start: -5px;
@@ -146,7 +148,7 @@
   font-weight: var(--bold-font-weight, 700);
 }
 
-.header_subtitle {
+.header-subtitle {
   align-self: start;
   margin-block-start: calc(
     0.36 * var(--header-title-font-size, clamp(7.25rem, 7.25rem + 0vw, 7.25rem))
@@ -161,15 +163,18 @@
   margin-block-start: 50px;
 }
 
-.document-content {
+.article {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.article-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding-block-start: 0;
-}
-
-document-content_title {
-  margin-block-start: 0;
 }
 
 .paragraph {
@@ -178,35 +183,29 @@ document-content_title {
   gap: var(--paragraph-gap, 10px);
 }
 
-.document-gorizontal {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-}
-
 .gallery {
   display: flex;
   flex-direction: column;
   gap: var(--main-section-gallery-gap, 10px);
 }
 
-.document-title {
+.basic-title {
+  background-color: transparent;
   color: var(--document-color, #ff0070);
   font-size: var(--main-font-size, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
-}
-
-.paragraph_title {
-  color: var(--paragraph-color, #000028);
-  font-size: var(--main-font-size, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
-}
-
-.section-title {
-  background-color: var(--accent-color, #ff0070);
-  color: var(--inversed-color, #000028);
   font-weight: var(--bold-font-weight, 700);
 }
 
-.paragraph_subtitle {
+.paragraph-title {
+  color: var(--paragraph-color, #000028);
+}
+
+.highlighted-title {
+  background-color: var(--accent-color, #ff0070);
+  color: var(--inversed-color, #000028);
+}
+
+.paragraph-subtitle {
   font-weight: var(--main-font-weight, 400);
 }
 
@@ -227,10 +226,6 @@ document-content_title {
   outline: 1px solid var(--main-color, #f1b2ce);
 }
 
-.gallery__tile-container {
-  display: grid;
-}
-
 .gallery__tile-image {
   inline-size: 100%;
   block-size: 100%;
@@ -249,29 +244,30 @@ document-content_title {
   text-shadow: 2px 2px 0 var(--header-title-shadow-color, #ff0070);
 }
 
-.document-vertical {
+.article-vertical {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas:
-    'title . . '
-    'content content content';
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+  'title'
+  'content';
 }
 
-.document-title_vertical {
+.article-vertical__title {
   grid-area: title;
   width: min-content;
 }
 
-.document-content_newspaper_format {
-  grid-area: content;
+.article-vertical__content {
   display: grid;
-  grid-template-rows: 1fr;
-  grid-auto-flow: row;
+  gap: 20px;
+  grid-area: content;
+  grid-template-columns: 1fr;
 }
 
 .gallery__mosaic {
   display: grid;
+  grid-template-columns: 1fr;
   gap: var(--main-section-gallery-gap, 10px);
   max-width: 100%;
 }
@@ -282,21 +278,8 @@ document-content_title {
     gap: 50px;
   }
 
-  .document-gorizontal {
-    gap: 20px;
-  }
-
-  .document-vertical {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
-
-  .header_subtitle {
+  .header-subtitle {
     max-width: 100%;
-  }
-
-  .document-content_newspaper_format {
-    grid-template-columns: 1fr;
   }
 
   .footer {
@@ -305,8 +288,8 @@ document-content_title {
 }
 
 @media (max-width: 767.5px), (min-width: 1024px) {
-
-  .document-title_vertical {
+  
+  .article-vertical__title {
     width: 100%;
   }
 }
@@ -332,7 +315,7 @@ document-content_title {
     margin-block-start: 80px;
   }
 
-  .document-gorizontal {
+  .article {
     grid-template-columns: 32% 65%;
     gap: 3%;
   }
@@ -349,6 +332,7 @@ document-content_title {
 
   .gallery__mosaic {
     grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row;
   }
 
   .gallery__tile-container:nth-child(1) {
@@ -375,7 +359,6 @@ document-content_title {
     grid-column: 2 / 4;
     grid-row: 3 / 4;
   }
-
 }
 
 @media (min-width: 1024px) {
@@ -393,13 +376,19 @@ document-content_title {
     flex-direction: row;
   }
 
-  .document-gorizontal {
+  .article {
     grid-template-columns: 32% 66%;
     gap: 2%;
   }
 
-  .document-content_newspaper_format {
-    gap: var(--main-section-gallery-gap);
+  .article-vertical {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+      'title . .'
+      'content content content';
+  }
+
+  .article-vertical__content {
     grid-template-columns: repeat(3, 1fr);
   }
 }

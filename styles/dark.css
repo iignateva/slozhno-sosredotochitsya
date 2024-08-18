@@ -20,14 +20,6 @@
   --paragraph-title: #000028;
   --document-color: #ff0070;
   --paragraph-color: #000028;
-
-
-  .header__decoration::before {
-      content: 'rec';
-  }
-
-  .header__decoration::after {
-     content: '';
-  }
+  --decoration-visibility: block;
 
 }

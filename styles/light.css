@@ -17,15 +17,9 @@
     --main-color: #353430;
     --document-color: #353430;
     --paragraph-color: #353430;
+    --decoration-visibility: none;
   }
 
-  .header__decoration::before {
-    content: none;
-  }
-
-  .header__decoration::after {
-    content: none;
-  }
 }
 
 .page.theme_light {
@@ -44,12 +38,6 @@
   --main-color: #353430;
   --document-color: #353430;
   --paragraph-color: #353430;
+  --decoration-visibility: none;
 
-  .header__decoration::before {
-    content: none;
-  }
-
-  .header__decoration::after {
-    content: none;
-  }
 }
